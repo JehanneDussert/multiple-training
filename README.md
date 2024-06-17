@@ -2,7 +2,7 @@
 
 The different subjects I train on.
 
-## Database
+## 🛢 Database
 
 ### SQL
 
@@ -59,9 +59,9 @@ DELETE from recipes WHERE title = 'Soupe'
 UPDATE recipes SET title = 'Soupe de légume' WHERE title = 'Soupe'
 ```
 
-## Backend
+## 🛠️ Backend
 
-### Scraping
+### ⛏️ Scraping
 
 #### Override protections against scraping
 
@@ -71,9 +71,9 @@ UPDATE recipes SET title = 'Soupe de légume' WHERE title = 'Soupe'
 
 [Documentation](https://www.youtube.com/watch?v=HCV6nEACQo4&t=151s)
 
-### FastAPI
+### 🏃🏻‍♀️ FastAPI
 
-__Requests types:__ POST, GET, DELETE, PUT -> CRUD (Create, Read, Update, Delete)
+__Requests types:__ POST, GET, DELETE, PUT -> CRUD (Create, Read, Update, Delete)<br/>
 __Decorators:__ with FastAPI, enables to define routes.
 
 Command line:
@@ -135,6 +135,27 @@ def get_all_types() -> list[str]:
     return types
 ```
 
-__CORS :__ Cross_Origin Resource Sharing.
+__CORS :__ Cross-Origin Resource Sharing. This may or may not allow a site from a different origin to access our API by defining the authorized routes.
+
+```bash
+from fastapi.middleware.cors import CORSMiddleware
+
+# For instance:
+origins = [
+    "http://localhost",
+    "http://localhost:8080",
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "http://localhost:4173"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+```
 
 [Documentation](https://www.youtube.com/watch?v=0-yncL0bqZs)
