@@ -61,6 +61,27 @@ UPDATE recipes SET title = 'Soupe de légume' WHERE title = 'Soupe'
 
 ## 🛠️ Backend
 
+### File organization
+
+#### 📁 /app
+
+__crud.py:__ interaction functions w/ DB
+__database.py:__ ORM creation (for instance: SQLAlchemy), engine & sessions creation to interact w/ DB, base classes definition
+__model.py:__ SQLAlchemy classes to interact w/ DB table
+__schemas.py:__ classes used to creates objects
+
+#### 📁 /env
+
+Project configuration.
+
+#### 📁 /migrations
+
+Store SQL tables & SQLite DB.
+
+#### 📁 /tests
+
+Using pytest to check if routes return a correct answer.
+
 ### ⛏️ Scraping
 
 #### Override protections against scraping
@@ -159,3 +180,9 @@ app.add_middleware(
 ```
 
 [Documentation](https://www.youtube.com/watch?v=0-yncL0bqZs)
+
+### SQLAlchemy
+
+__SQLAlchemy__ is an __Object-Relational Mapping (ORM)__, a layer of abstraction between the code and the DB. Converts SQL queries into objects and vice versa.
+
+__Other examples of ORM :__ Sequelize (NodeJS - MySQL, PostgreSQL, SQLite), Django ORM (same), Hibernate (Java), Ecto (Elixir - PostegreSQL)...
